@@ -63,6 +63,13 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 //SHOW LOGIN FROM
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-//olg in user
+//log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+//show user-edit form
+Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+
+//update submit new edited user data
+Route::put('/users/{user}', [UserController::class, 'update']);
+
 

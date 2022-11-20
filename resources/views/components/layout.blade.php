@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="images/favicon.ico" />
+        <link rel="icon" href="image/favicon.ico" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -26,12 +26,12 @@
                 },
             };
         </script>
-        <title>LaraGigs | Find Laravel Jobs & Projects</title>
+        <title>Sport | Find Tournaments & Join</title>
     </head>
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4">
             <a href="/"
-                ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
+                ><img class="w-24" src="{{asset('image/logo.png')}}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 @auth
@@ -40,18 +40,30 @@
                 </li>
                 <li>
                     <a href="/listings/manage" class="hover:text-laravel"
-                        ><i class="fa-gear"></i>
+                        ><i class="fas fa-list"></i>
                         Manage Listings</a
                     >
                 </li>
+
+                <li>
+                    {{--/users/{{auth()->user()->id}}/edituser--}}
+                <a href="/users/{{auth()->user()->id}}/edit" class="hover:text-laravel"
+                        ><i class="fas fa-child"></i>
+                        Edit my profile</a
+                    >
+                </li>
+
                 <li>
                     <form class="inline" method="POST" action="/logout">
                         @csrf
                         <button type="submit">
-                            <i class="fa-solid fa-door-closed"></i> Logout
+                            <i class="fa fa-sign-out"></i> Logout
 
                     </form>
                 </li>
+
+                {{--TODO: roll down (dropdown???) menu--}}
+
                 @else
                 <li>
                     <a href="/register" class="hover:text-laravel"
@@ -80,7 +92,7 @@
             <a
                 href="/listings/create"
                 class="absolute top-1/3 right-10 bg-black text-white py-2 px-5"
-                >Post Job</a
+                >Post Tournament</a
             >
         </footer>
 

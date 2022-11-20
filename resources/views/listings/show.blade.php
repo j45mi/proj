@@ -12,7 +12,7 @@
     >
         <img
             class="w-48 mr-6 mb-6"        
-            src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}"
+            src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/image/no-image.png')}}"
             alt=""
         />
 
@@ -27,7 +27,7 @@
         <div class="border border-gray-200 w-full mb-6"></div>
         <div>
             <h3 class="text-3xl font-bold mb-4">
-                Job Description
+                Tournament Description
             </h3>
             <div class="text-lg space-y-6">
                {{$listing->descriptions}}
@@ -36,7 +36,7 @@
                     href="mailto:{{$listing->email}}"
                     class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                     ><i class="fa-solid fa-envelope"></i>
-                    Contact Employer</a
+                    Contact Organizer</a
                 >
 
                 <a

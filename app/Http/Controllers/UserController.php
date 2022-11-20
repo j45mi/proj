@@ -71,4 +71,25 @@ class UserController extends Controller
         
 
     }
+
+    //show edit user form
+    public function edit(Request $request, User $user){
+        return view('users.edit', ['users' => $user]);
+    }
+
+    // function for storing
+    public function update(Request $request, User $user){
+        $formFields = $request->validate([
+            'name' => ['required', 'min:3'],
+            'email' => ['required', 'email'],
+        ]);
+
+
+        $user->update($formFields);
+
+        return back()->with('message', 'User edited.');
+        
+    }
+
+
 }

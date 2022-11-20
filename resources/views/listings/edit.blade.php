@@ -4,7 +4,7 @@
         class="rounded max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Edit Gig
+                Edit Tournament
             </h2>
         <p class="mb-4">Edit: {{$listing->title}}</p>
         </header>
@@ -16,7 +16,7 @@
                 <label
                     for="company"
                     class="inline-block text-lg mb-2"
-                    >Company Name</label
+                    >Sport</label
                 >
                 <input
                     type="text"
@@ -49,7 +49,7 @@
                 <label
                     for="location"
                     class="inline-block text-lg mb-2"
-                    >Job Location</label
+                    >Location</label
                 >
                 <input
                     type="text"
@@ -114,7 +114,7 @@
     
             <div class="mb-6">
                 <label for="logo" class="inline-block text-lg mb-2">
-                    Company Logo
+                    Tournament Logo
                 </label>
                 <input
                     type="file"
@@ -123,7 +123,7 @@
                 />
                 <img
                 class="w-48 mr-6 mb-6"        
-                src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}"
+                src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/image/no-image.png')}}"
                 alt=""
                 />
                 @error('logo')
@@ -136,7 +136,7 @@
                     for="descriptions"
                     class="inline-block text-lg mb-2"
                 >
-                    Job Description
+                    Tournament Description
                 </label>
                 <textarea
                     class="border border-gray-200 rounded p-2 w-full"
@@ -154,7 +154,7 @@
                 <button
                     class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
                 >
-                    Update Gig
+                    Update Tournament
                 </button>
     
                 <a href="/" class="text-black ml-4"> Back </a>
