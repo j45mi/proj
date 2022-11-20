@@ -75,21 +75,23 @@
                 @enderror
             </div>
 
-            {{--<div class="mb-6">
-                <fieldset>
+            <div class="mb-6">
+                <legend>Do you want to be an administrator?
+                <input unchecked name="is_admin" type="checkbox" value="yes"> </legend>
+                {{-- <fieldset>
                     <legend>Do you want to be administrator?</legend>
 
                     <div method=POST>
                         <input 
                             type="checkbox" 
                             id="is_admin" 
-                            name="is_admin" 
-                            value="0"
-                            checked>
+                            name="is_admin"
+                            value="{{old('is_admin')}}"
+                            unchecked>
                         <label for="is_admin">Yes</label>
                     </div>
-                </fieldset>
-            </div> --}}
+                </fieldset> --}}
+            </div>
 
             <div class="mb-6">
                 <button

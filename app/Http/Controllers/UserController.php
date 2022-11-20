@@ -19,8 +19,16 @@ class UserController extends Controller
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|confirmed|min:6',
+            'is_admin' => '',
         ]);
-        
+
+        if($request['is_admin'] === 'yes'){
+            $formFields['is_admin'] = true;
+        }else{
+            $formFields['is_admin'] = false;
+
+        }
+
         // hash password
         $formFields['password'] = bcrypt($formFields['password']);
         //create user
