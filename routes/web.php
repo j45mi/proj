@@ -78,4 +78,7 @@ Route::get('/registered_users', [UserController::class, 'index']);
 // show single players-registered users
 Route::get('/users/{user}', [UserController::class, 'show']);
 
+//delete listing
+Route::delete('/users/{user}', [ListingController::class, 'destroy'])->middleware('auth');
+
 

@@ -32,30 +32,22 @@ hellou user profile todo:
                         Contact Player</a
                     >
 
-                    <a
-                    {{--TODO: href="{{$user->website}}"T--}}
-                    target="_blank"
-                    class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
-                    ><i class="fas fa-pen"></i>
-                    Edit Player</a
-                >
-
                 </div>
             </div>
         </div>
     </x-card>
         
-    {{-- <x-card class="mt-4 p-2 flex space-x-6">
-        <a href="/listings/{{$listing->id}}/edit">
+    <x-card class="mt-4 p-2 flex space-x-6">
+        <a href="/users/{{$user->id}}/edit">
             <i class="fa-solid fa-pencil"></i> Edit
-        </a>--}}
+        </a>
     
-    {{--<form method="POST" action="/listings/{{$listing->id}}">
+    <form method="POST" action="/users/{{$user->id}}">
         @csrf
         @method('DELETE')
         <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete </button>
     </x-card>
-    </div>--}}
+    </div>
     
     </x-layout>
         

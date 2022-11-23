@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -93,13 +94,13 @@ class ListingController extends Controller
 
     //delete listing
     public function destroy(Listing $listing){
-        //make sure logged in user is owner!
-        if($listing->user_id != auth()->id()){
+        //make sure logged in user is owner or admin!
+        if($listing->user_id != auth()->id() && auth()->user()->is_admin == false){
             abort(403, 'Unathorized Action');
-        }
-
+        } 
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted successfully');
+        
     }
 
     //manage listings

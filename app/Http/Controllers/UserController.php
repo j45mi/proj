@@ -35,6 +35,7 @@ class UserController extends Controller
         $user = User::create($formFields);
         //login
         auth()->login($user);
+        $formFields['is_admin'] = auth()->is_admin();
 
         return redirect('/')->with('message', 'User created and logged in.');
         
@@ -111,6 +112,18 @@ class UserController extends Controller
             'user' => $user
         ]);
 
+    }
+
+    //delete user
+    public function destroy(User $user){
+        //make sure logged in user is owner or admin!
+        if($user->user_id != auth()->id() || $user->is_admin =! 1){
+            //abort(403, 'Unathorized Action');
+            return redirect('/')->with('message', 'User deleted successfully');
+        }
+
+        $user->delete();
+        return redirect('/')->with('message', 'User deleted successfully');
     }
 
 
