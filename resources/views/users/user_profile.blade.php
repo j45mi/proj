@@ -29,8 +29,16 @@ hellou user profile todo:
                         href="mailto:{{$user->email}}"
                         class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
-                        Contact Player</a
-                    >
+                        Contact Player
+                    </a>
+
+                    
+                    <a 
+                        href="/users/{{$user->id}}/edit"
+                        class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                        <i class="fa-solid fa-globe"></i> 
+                        Edit Profile
+                    </a>
 
                 </div>
             </div>
@@ -38,9 +46,6 @@ hellou user profile todo:
     </x-card>
         
     <x-card class="mt-4 p-2 flex space-x-6">
-        <a href="/users/{{$user->id}}/edit">
-            <i class="fa-solid fa-pencil"></i> Edit
-        </a>
     
     <form method="POST" action="/users/{{$user->id}}">
         @csrf

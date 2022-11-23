@@ -35,7 +35,6 @@ class UserController extends Controller
         $user = User::create($formFields);
         //login
         auth()->login($user);
-        $formFields['is_admin'] = auth()->is_admin();
 
         return redirect('/')->with('message', 'User created and logged in.');
         
@@ -80,6 +79,10 @@ class UserController extends Controller
 
     // function for user update
     public function update(Request $request, User $user){
+        if($user->id != auth()->id() && auth()->user()->is_admin == false){
+            abort(403, 'Unathorized Action');
+        }
+
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email'],
@@ -119,11 +122,18 @@ class UserController extends Controller
         //make sure logged in user is owner or admin!
         if($user->id != auth()->id() && auth()->user()->is_admin == false){
             abort(403, 'Unathorized Action');
-            //return redirect('/')->with('message', 'User deleted successfully');
         }
 
         $user->delete();
         return redirect('/')->with('message', 'User deleted successfully');
+    }
+
+    //edit user
+    public function edit_someone(User $user){
+        return view('users.edit_someone', [
+            'user' => $user
+        ]);
+
     }
 
 

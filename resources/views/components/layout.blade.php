@@ -60,10 +60,9 @@
                 </li>
 
                 <li>
-                    {{--/users/{{auth()->user()->id}}/edituser--}}
                 <a href="/users/{{auth()->user()->id}}/edit" class="hover:text-laravel"
                         ><i class="fas fa-user-edit"></i>
-                        Edit my profile</a
+                        Edit profile</a
                     >
                 </li>
 

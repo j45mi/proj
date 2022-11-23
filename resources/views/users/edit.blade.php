@@ -2,11 +2,11 @@
     <x-card class="p-10 rounded max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Edit My Profile
+                Edit Profile
             </h2>
         </header>
 
-    <form method="POST" action="/users/{{auth()->user()->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/users/{{$users->id}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">
@@ -17,7 +17,7 @@
                     type="text"
                     class="border border-gray-200 rounded p-2 w-full"
                     name="name"
-                    value="{{auth()->user()->name}}"
+                    value="{{$users->name}}"
                 />
                 @error('name')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -34,14 +34,14 @@
                     type="email"
                     class="border border-gray-200 rounded p-2 w-full"
                     name="email"
-                    value="{{auth()->user()->email}}"
+                    value="{{$users->email}}"
                 />
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
-            @if( auth()->user()->is_admin === 1 )
+            @if( $users->is_admin === 1 )
                 <div class="mb-6">
                     Administrator
                     <span>&#10003;</span>
@@ -54,7 +54,7 @@
                     type="submit"
                     class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
                 >
-                    Edit My Profile
+                    Edit Profile
                 </button>
             </div>
         </form>
