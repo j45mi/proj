@@ -34,6 +34,20 @@
                 ><img class="w-24" src="{{asset('image/logo.png')}}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
+
+                <li>
+                    <a href="/registered_users" class="hover:text-laravel"
+                        ><i class="fa-solid fas fa-user-alt"></i>
+                        Players</a
+                    >
+                </li>
+                <li>
+                    <a href="/registered_teams" class="hover:text-laravel"
+                        ><i class="fa-solid fas fa-users"></i>
+                        Teams</a
+                    >
+                </li>
+                
                 @auth
                 <li>
                     <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>
@@ -41,14 +55,14 @@
                 <li>
                     <a href="/listings/manage" class="hover:text-laravel"
                         ><i class="fas fa-list"></i>
-                        Manage Listings</a
+                        Manage My Tournaments</a
                     >
                 </li>
 
                 <li>
                     {{--/users/{{auth()->user()->id}}/edituser--}}
                 <a href="/users/{{auth()->user()->id}}/edit" class="hover:text-laravel"
-                        ><i class="fas fa-child"></i>
+                        ><i class="fas fa-user-edit"></i>
                         Edit my profile</a
                     >
                 </li>
@@ -60,9 +74,7 @@
                             <i class="fa fa-sign-out"></i> Logout
 
                     </form>
-                </li>
-
-                {{--TODO: roll down (dropdown???) menu--}}
+                </li>        
 
                 @else
                 <li>
@@ -77,11 +89,26 @@
                     >
                 </li>
                 @endauth
+
+
+               {{-- TODO: WHY IT IS NOT WORKING??????? DROPDOWN MENU
+                <div id="dropdown">
+                    <button class="fas fa-volleyball-ball"> More</button>
+                    <div>
+                        <ol>
+                            <span><li href='*'>Players</li></span>
+                            <span><li href='*'>Teams</li></span>
+                            <span><li href='*'>Tournamnets</li></span>
+                        </ol>
+                    </div>
+                </div>  --}}
+                
+
             </ul>
         </nav> 
-
         <main>
         {{--VIEW OUTPUT--}}
+
         {{$slot}}
         </main>
         <footer
@@ -100,4 +127,5 @@
     </body>
 </html>
     </body>
+
 </html>

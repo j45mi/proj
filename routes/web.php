@@ -72,4 +72,10 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit']);
 //update submit new edited user data
 Route::put('/users/{user}', [UserController::class, 'update']);
 
+// show players-registered user
+Route::get('/registered_users', [UserController::class, 'index']);
+
+// show single players-registered users
+Route::get('/users/{user}', [UserController::class, 'show']);
+
 

@@ -41,6 +41,14 @@
                 @enderror
             </div>
 
+            @if( auth()->user()->is_admin === 1 )
+                <div class="mb-6">
+                    Administrator
+                    <span>&#10003;</span>
+                </div>
+
+            @endif
+
             <div class="mb-6">
                 <button
                     type="submit"
