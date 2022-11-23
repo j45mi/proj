@@ -79,6 +79,6 @@ Route::get('/registered_users', [UserController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show']);
 
 //delete listing
-Route::delete('/users/{user}', [ListingController::class, 'destroy'])->middleware('auth');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 
 

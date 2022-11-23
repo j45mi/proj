@@ -117,9 +117,9 @@ class UserController extends Controller
     //delete user
     public function destroy(User $user){
         //make sure logged in user is owner or admin!
-        if($user->user_id != auth()->id() || $user->is_admin =! 1){
-            //abort(403, 'Unathorized Action');
-            return redirect('/')->with('message', 'User deleted successfully');
+        if($user->id != auth()->id() && auth()->user()->is_admin == false){
+            abort(403, 'Unathorized Action');
+            //return redirect('/')->with('message', 'User deleted successfully');
         }
 
         $user->delete();
