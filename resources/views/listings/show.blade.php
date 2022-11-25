@@ -19,7 +19,7 @@
         <h3 class="text-2xl mb-2">{{$listing->title}}</h3>
         <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
         
-    <x-listing-tags :tagsCsv='$listing->tags' />
+    <x-listing-tags :tagsCsv='$listing->sport' />
 
         <div class="text-lg my-4">
             <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
@@ -42,10 +42,27 @@
                 <a
                     href="{{$listing->website}}"
                     target="_blank"
-                    class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
+                    class="block bg-laravel text-white py-2 rounded-xl hover:opacity-80"
                     ><i class="fa-solid fa-globe"></i> Visit
                     Website</a
                 >
+
+                <div class="mb-10">
+                    Approval:
+                   @if($listing->approved === 1)
+                       <span>&#10003;</span>  
+                   @else
+                       <i class="fa fa-close"></i>
+                   @endif
+               </div>
+
+               <a 
+                    href="/listings/{{$listing->id}}/edit"
+                    class="block bg-black text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                    <i class="fa-solid fas fa-pen"></i> 
+                    Edit approval
+                </a>
+
             </div>
         </div>
     </div>

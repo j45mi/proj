@@ -22,10 +22,10 @@ class UserController extends Controller
             'is_admin' => '',
         ]);
 
-        if($request['is_admin'] === 'yes'){
-            $formFields['is_admin'] = true;
+        if($request['is_admin'] === "no"){
+            $formFields['is_admin'] = 1;
         }else{
-            $formFields['is_admin'] = false;
+            $formFields['is_admin'] = 0;
 
         }
 

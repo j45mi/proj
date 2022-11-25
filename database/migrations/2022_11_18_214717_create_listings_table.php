@@ -20,11 +20,16 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); //to happen something in database we need to run migration!!!
             $table->string('title');
             $table->string('logo')->nullable();
-            $table->string('tags');
-            $table->string('company');
+            $table->string('sport')->nullable();
             $table->string('location');
             $table->string('email');
             $table->string('website');
+            $table->longtext('conditions');
+            $table->integer('max_players');
+            $table->string('prize')->nullable();
+            $table->string('winner')->nullable();
+            $table->date('date')->nullable();
+            $table->boolean('approved');
             $table->longText('descriptions');
             $table->timestamps();
         });

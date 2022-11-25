@@ -19,12 +19,17 @@ class ListingFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'tags' => 'laravel, api, backend',
-            'company' => $this->faker->company(),
-            'email' => $this->faker->companyEmail(),
-            'website' => $this->faker->url(),
+            'date' => '2022-05-05',
             'location' => $this->faker->city(),
-            'descriptions' => $this->faker->paragraph(5)
+            'email' => $this->faker->companyEmail(),
+            'sport' => 'swimming',
+            'conditions' => 'girls and boys',
+            'max_players' => 10,
+            'descriptions' => $this->faker->sentence(),
+            'prize' => $this->faker->word(),
+            //'winner' => '',
+            'website' => 'https://www.cesa.vut.cz/verejnost',
+            'approved' => false,
             
         ];
     }

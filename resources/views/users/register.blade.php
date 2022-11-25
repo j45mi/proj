@@ -77,20 +77,7 @@
 
             <div class="mb-6">
                 <legend>Do you want to be an administrator?
-                <input unchecked name="is_admin" type="checkbox" value="yes"> </legend>
-                {{-- <fieldset>
-                    <legend>Do you want to be administrator?</legend>
-
-                    <div method=POST>
-                        <input 
-                            type="checkbox" 
-                            id="is_admin" 
-                            name="is_admin"
-                            value="{{old('is_admin')}}"
-                            unchecked>
-                        <label for="is_admin">Yes</label>
-                    </div>
-                </fieldset> --}}
+                <input unchecked name="is_admin" type="checkbox" value="no"> </legend>
             </div>
 
             <div class="mb-6">
@@ -100,12 +87,6 @@
                 >
                     Sign Up
                 </button>
-                {{-- <button
-                    type="submit_admin"
-                    class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
-                >
-                    Sign Up as Admin
-                </button> --}}
             </div>
 
             <div class="mt-8">

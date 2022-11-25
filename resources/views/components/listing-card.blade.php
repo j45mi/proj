@@ -14,11 +14,23 @@
                 <a href="./listings/{{$listing->id}}">{{$listing->title}}</a>
             </h3>
             <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
-            <x-listing-tags :tagsCsv="$listing->tags">
+            <x-listing-tags :tagsCsv="$listing->sport">
                 <div class="text-lg mt-4">
                     <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
                 </div>
             </x-listing-tags>
+            
+            
+            <div class="mb-10">
+                 
+                @if($listing->approved === 1)
+                Approved by admin
+                    <span>&#10003;</span>  
+                @else
+                Not-approved by admin
+                    <i class="fa fa-close"></i>
+                @endif
+            </div>
         </div>
     </div>
 </x-card>
